@@ -6,7 +6,7 @@ import React from 'react'
 import { Toaster } from 'react-hot-toast'
 
 import Login from './pages/Login/index.jsx'
-import SignUp from './pages/SignUp/index.jsx'
+import SignUp from './pages/Signup/index.jsx'
 import UserManagement from './pages/UserManagement/index.jsx'
 import Profile from './pages/Profile/index.jsx'
 
@@ -31,9 +31,7 @@ function App() {
         <Route path="/" element={<Navigate to="/login" replace />} />
            <Route path="/login" element={<Login />} />     
            <Route path="/signup" element={<SignUp />} />     
-           {/* Redirect standalone routes to /home */}
-           <Route path="/profile" element={<Navigate to="/home/profile" replace />} />
-           <Route path="/userManagement" element={<Navigate to="/home/userManagement" replace />} />
+         
         <Route path="/home" element={
           <ProtectedRoute>
             <Layout />
