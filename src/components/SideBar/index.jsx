@@ -15,7 +15,7 @@ import key from "@/assets/key.png";
 const menuItems = [
   { name: "Bảng điều khiển", navLink: "/home/dashboard", icon: LayoutDashboard },
   { name: "Quản lý người dùng", navLink: "/home/userManagement", icon: Users },
-  { name: "Cài đặt", navLink: "/home/settings", icon: Settings },
+  { name: "Dự án", navLink: "/home/projects", icon: Settings },
   { name: "Báo cáo", navLink: "/home/reports", icon: BarChart2 },
   { name: "Hồ sơ", navLink: "/home/profile", icon: User },
 

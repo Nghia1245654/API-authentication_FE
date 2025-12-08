@@ -10,18 +10,12 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [Loading, setLoading] = useState(false);
+  const [role, setRole] = useState("");
   const navigate = useNavigate();
 
-  // Kiểm tra nếu đã login thì redirect về home
-  useEffect(() => {
-    const accessToken = localStorage.getItem('accessToken');
-    if (accessToken) {
-      navigate('/home', { replace: true });
-    }
-  }, [navigate]);
 
   const handleSignUp = async () => {
-    if (!email || !password || !name) {
+    if (!email || !password || !name || !role) {
       toast.error("Please fill in all fields");
       return;
     }
@@ -31,6 +25,7 @@ const SignUp = () => {
         email,
         name,
         password,
+        role,
       });
       if (response.status === 200) {
         toast.success("Registration successful");
@@ -38,7 +33,7 @@ const SignUp = () => {
         setEmail("");
         setName("");
         setPassword("");
-        setLoading(false);
+        setRole("");
       }
     } catch (error) {
       toast.error("Registration failed");
@@ -58,6 +53,8 @@ const SignUp = () => {
         setPassword={setPassword}
         Loading={Loading}
         handleSignUp={handleSignUp}
+        role={role}
+        setRole={setRole}
       />
     </div>
   )

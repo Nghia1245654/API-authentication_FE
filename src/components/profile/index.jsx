@@ -42,7 +42,7 @@ const ProfileComponent = ({ user, loading, handleLogout }) => {
 
             <div className="flex justify-between">
               <span className="text-gray-500">Vai trò</span>
-              <span>{user.role || "Người dùng"}</span>
+              <span>{user.data?.role || "Người dùng"}</span>
             </div>
           </div>
 

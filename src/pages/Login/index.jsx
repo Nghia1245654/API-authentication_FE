@@ -11,13 +11,6 @@ const Login = () => {
   const [Loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // Kiểm tra nếu đã login thì redirect về home
-  useEffect(() => {
-    const accessToken = localStorage.getItem('accessToken');
-    if (accessToken) {
-      navigate('/home', { replace: true });
-    }
-  }, [navigate]);
 
   const handleLogin = async (e) => {
   e.preventDefault();

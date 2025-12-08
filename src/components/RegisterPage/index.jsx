@@ -22,6 +22,8 @@ export default function RegisterPage({
   setPassword,
   Loading,
   handleSignUp,
+  role,
+  setRole,
 }) {
   return (
     <div className="min-h-screen bg-[#f5f7fb] flex flex-col items-center justify-center px-4 py-10">
@@ -83,12 +85,13 @@ export default function RegisterPage({
 
             <div className="flex flex-col gap-2">
               <Label className="font-semibold text-gray-700">Vai trò</Label>
-              <Select defaultValue="user">
+              <Select value={role} onValueChange={setRole}>
                 <SelectTrigger className="w-full h-12 bg-gray-50 border-gray-200 focus:ring-blue-600 flex items-center justify-between">
                   <SelectValue placeholder="Chọn vai trò" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="user">Người dùng</SelectItem>
+                  <SelectItem value="admin">Quản trị viên</SelectItem>
                 </SelectContent>
               </Select>
             </div>
