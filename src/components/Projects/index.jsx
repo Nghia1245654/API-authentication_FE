@@ -4,12 +4,13 @@ import { toast } from 'react-hot-toast';
 
 const ProjectsComponent = ({
     showCreateModal,
-    formData = { title: '', description: '', status: 'Not Started' },
+    formData = { title: '', description: '', status: 'Not Started', ownerId: '' },
     handleInputChange,
     handleCreateProject,
     handleCancel,
     loading = false,
-    userRole
+    userRole,
+    users = []
   }) => {
   
 
@@ -61,7 +62,29 @@ const ProjectsComponent = ({
                 />
               </div>
 
-              {/* Status */}
+              {/* Owner Selection (Admin Only) */}
+              {userRole === 'admin' && (
+                <div className="mb-6">
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Project Owner
+                  </label>
+                  <select
+                    name="ownerId"
+                    value={formData.ownerId}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
+                  >
+                    <option value="">Select owner</option>
+                    {Array.isArray(users) && users.map((user) => (
+                      <option key={user._id || user.id} value={user._id || user.id}>
+                        {user.name} ({user.email})
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+           
               <div className="mb-8">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Status

@@ -25,6 +25,12 @@ export const getMe = async () => {
   return response;
 };
 
+// GET: Lấy danh sách tất cả users (chỉ admin)
+export const getAllUsers = async () => {
+  const response = await apiInstance.get("/auth/users");
+  return response;
+};
+
 // POST: Đăng xuất người dùng (xóa refresh token cookie)
 export const logout = async () => {
   const response = await apiInstance.post("/auth/logout");
